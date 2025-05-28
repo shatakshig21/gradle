@@ -2,14 +2,12 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: Default
 
 steps:
-- script: chmod +x ./gradlew
-  displayName: 'Make gradlew executable'
-
-- script: ./gradlew build
-  displayName: 'Build with Gradle'
-
-- script: java -jar build/libs/gradle-wrapper.jar
-  displayName: 'Run JAR'
+- script: echo My Gradle Application
+  displayName: 'Run a one-line script'
+- script: gradle build
+  displayName: 'Building the gradle application'
+- script: gradle run
+  displayName: 'Running gradle application'
